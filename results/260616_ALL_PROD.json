@@ -1,0 +1,675 @@
+{
+  "config": {
+    "defaults": {
+      "system": "PROD",
+      "tenant": "MAINLINE",
+      "environment": "PROD"
+    },
+    "channels": [
+      {
+        "name": "PROD APPS",
+        "enabled": true,
+        "debug": false,
+        "channel_type": "concurrent",
+        "requests_count": 30,
+        "session_strategy": "same_session",
+        "share_cookies": true,
+        "request_delays_ms": "250,100,300,100,350,100,150,500,300,350,500,150,250,500",
+        "body": {
+          "input": {
+            "app": "Labox",
+            "tenant": "",
+            "environment": "",
+            "specificationType": [
+              "TECH"
+            ],
+            "productType": "SEMI",
+            "specificationDataType": "O",
+            "name": [],
+            "prver": "1",
+            "productData": {
+              "div": "01",
+              "prodgr": "677TAY",
+              "ver": "A",
+              "plant": "2100",
+              "cylL": 1,
+              "cylH": 2.25,
+              "dptL": 18,
+              "dptH": 22
+            }
+          }
+        }
+      },
+      {
+        "name": "BI CALLS",
+        "enabled": true,
+        "debug": false,
+        "channel_type": "sequential",
+        "requests_count": 4,
+        "session_strategy": "new_session_per_request",
+        "share_cookies": false,
+        "request_delays_ms": "5000",
+        "body": {
+          "input": {
+            "app": "NA",
+            "tenant": "",
+            "environment": "",
+            "specificationType": [
+              "SAP"
+            ],
+            "productType": "SEMI",
+            "specificationDataType": "P",
+            "name": [],
+            "prver": "1",
+            "productData": {
+              "div": "01",
+              "prodgr": "677TAY",
+              "ver": "A",
+              "plant": "2100"
+            }
+          }
+        }
+      },
+      {
+        "name": "VALIDATION APP",
+        "enabled": true,
+        "debug": false,
+        "channel_type": "sequential",
+        "requests_count": 6,
+        "session_strategy": "same_session",
+        "share_cookies": true,
+        "request_delays_ms": "0",
+        "body": {
+          "input": {
+            "app": "NA",
+            "tenant": "",
+            "environment": "",
+            "specificationType": [
+              "TECH",
+              "SAP"
+            ],
+            "productType": "SEMI",
+            "specificationDataType": "",
+            "name": [],
+            "prver": "1",
+            "productData": {
+              "div": "01",
+              "prodgr": "A45RT",
+              "ver": "A",
+              "plant": "2100"
+            }
+          }
+        }
+      },
+      {
+        "name": "EUDAMED",
+        "enabled": true,
+        "debug": false,
+        "channel_type": "sequential",
+        "requests_count": 7,
+        "session_strategy": "same_session",
+        "share_cookies": true,
+        "request_delays_ms": "0",
+        "body": {
+          "input": {
+            "app": "NA",
+            "tenant": "",
+            "environment": "",
+            "specificationType": [
+              "EUDAMED"
+            ],
+            "productType": "FIN",
+            "specificationDataType": "P",
+            "name": [],
+            "prver": "1",
+            "distchain": "01",
+            "productData": {
+              "div": "01",
+              "prodgr": "677TAY",
+              "ver": "A",
+              "pcode": "M0"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "dataset_description": "48K rows, all formulas",
+  "run_start_time": 1781695335.373496,
+  "yaml_content": "defaults:\n  system: PROD\n  tenant: MAINLINE\n  environment: PROD\nchannels:\n- name: PROD APPS\n  enabled: true\n  debug: false\n  channel_type: concurrent\n  requests_count: 30\n  session_strategy: same_session\n  share_cookies: true\n  request_delays_ms: 250,100,300,100,350,100,150,500,300,350,500,150,250,500\n  body:\n    input:\n      app: Labox\n      tenant: ''\n      environment: ''\n      specificationType:\n      - TECH\n      productType: SEMI\n      specificationDataType: O\n      name: []\n      prver: '1'\n      productData:\n        div: '01'\n        prodgr: 677TAY\n        ver: A\n        plant: '2100'\n        cylL: 1\n        cylH: 2.25\n        dptL: 18\n        dptH: 22\n- name: BI CALLS\n  enabled: true\n  debug: false\n  channel_type: sequential\n  requests_count: 4\n  session_strategy: new_session_per_request\n  share_cookies: false\n  request_delays_ms: '5000'\n  body:\n    input:\n      app: NA\n      tenant: ''\n      environment: ''\n      specificationType:\n      - SAP\n      productType: SEMI\n      specificationDataType: P\n      name: []\n      prver: '1'\n      productData:\n        div: '01'\n        prodgr: 677TAY\n        ver: A\n        plant: '2100'\n- name: VALIDATION APP\n  enabled: true\n  debug: false\n  channel_type: sequential\n  requests_count: 6\n  session_strategy: same_session\n  share_cookies: true\n  request_delays_ms: '0'\n  body:\n    input:\n      app: NA\n      tenant: ''\n      environment: ''\n      specificationType:\n      - TECH\n      - SAP\n      productType: SEMI\n      specificationDataType: ''\n      name: []\n      prver: '1'\n      productData:\n        div: '01'\n        prodgr: A45RT\n        ver: A\n        plant: '2100'\n- name: EUDAMED\n  enabled: true\n  debug: false\n  channel_type: sequential\n  requests_count: 7\n  session_strategy: same_session\n  share_cookies: true\n  request_delays_ms: '0'\n  body:\n    input:\n      app: NA\n      tenant: ''\n      environment: ''\n      specificationType:\n      - EUDAMED\n      productType: FIN\n      specificationDataType: P\n      name: []\n      prver: '1'\n      distchain: '01'\n      productData:\n        div: '01'\n        prodgr: 677TAY\n        ver: A\n        pcode: M0\n",
+  "channels": [
+    {
+      "name": "PROD APPS",
+      "channel_type": "concurrent",
+      "body": {
+        "input": {
+          "app": "Labox",
+          "tenant": "",
+          "environment": "",
+          "specificationType": [
+            "TECH"
+          ],
+          "productType": "SEMI",
+          "specificationDataType": "O",
+          "name": [],
+          "prver": "1",
+          "productData": {
+            "div": "01",
+            "prodgr": "677TAY",
+            "ver": "A",
+            "plant": "2100",
+            "cylL": 1,
+            "cylH": 2.25,
+            "dptL": 18,
+            "dptH": 22
+          }
+        }
+      },
+      "requests": [
+        {
+          "request_index": 0,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 0.7365279197692871,
+          "err_body": "",
+          "start_offset": 0.2719101000002411,
+          "end_offset": 1.0084931999990658
+        },
+        {
+          "request_index": 1,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 0.6681392192840576,
+          "err_body": "",
+          "start_offset": 0.37436609999713255,
+          "end_offset": 1.042561399997794
+        },
+        {
+          "request_index": 2,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 0.7375824451446533,
+          "err_body": "",
+          "start_offset": 0.6799334999996063,
+          "end_offset": 1.417594200000167
+        },
+        {
+          "request_index": 3,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 0.8146235942840576,
+          "err_body": "",
+          "start_offset": 0.7825974999977916,
+          "end_offset": 1.5972712999973737
+        },
+        {
+          "request_index": 4,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 0.7085890769958496,
+          "err_body": "",
+          "start_offset": 1.1490947999991477,
+          "end_offset": 1.8577751999982866
+        },
+        {
+          "request_index": 5,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 0.7977979183197021,
+          "err_body": "",
+          "start_offset": 1.252204399999755,
+          "end_offset": 2.0500957000003837
+        },
+        {
+          "request_index": 6,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 0.753704309463501,
+          "err_body": "",
+          "start_offset": 1.415790899998683,
+          "end_offset": 2.1695889999973588
+        },
+        {
+          "request_index": 7,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 0.9081394672393799,
+          "err_body": "",
+          "start_offset": 1.9250667999986035,
+          "end_offset": 2.8332630999975663
+        },
+        {
+          "request_index": 8,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 0.6069142818450928,
+          "err_body": "",
+          "start_offset": 2.234022199998435,
+          "end_offset": 2.8409869999995863
+        },
+        {
+          "request_index": 9,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 0.775991678237915,
+          "err_body": "",
+          "start_offset": 2.6005294999995385,
+          "end_offset": 3.376598599999852
+        },
+        {
+          "request_index": 10,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 2.8682587146759033,
+          "err_body": "",
+          "start_offset": 3.106006799996976,
+          "end_offset": 5.974358499999653
+        },
+        {
+          "request_index": 11,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 2.701197862625122,
+          "err_body": "",
+          "start_offset": 3.270537099997455,
+          "end_offset": 5.971819499998674
+        },
+        {
+          "request_index": 12,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 2.437950611114502,
+          "err_body": "",
+          "start_offset": 3.535170199997083,
+          "end_offset": 5.9732441999985895
+        },
+        {
+          "request_index": 13,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 4.125081777572632,
+          "err_body": "",
+          "start_offset": 4.047507100000075,
+          "end_offset": 8.172737099997903
+        },
+        {
+          "request_index": 14,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 3.6078996658325195,
+          "err_body": "",
+          "start_offset": 4.559354499997426,
+          "end_offset": 8.167390399998112
+        },
+        {
+          "request_index": 15,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 3.0869064331054688,
+          "err_body": "",
+          "start_offset": 5.068996699999843,
+          "end_offset": 8.15599089999887
+        },
+        {
+          "request_index": 16,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 2.579097032546997,
+          "err_body": "",
+          "start_offset": 5.577677499997662,
+          "end_offset": 8.156896999997116
+        },
+        {
+          "request_index": 17,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 2.0859522819519043,
+          "err_body": "",
+          "start_offset": 6.088481099999626,
+          "end_offset": 8.174511599998368
+        },
+        {
+          "request_index": 18,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 1.8084478378295898,
+          "err_body": "",
+          "start_offset": 6.601640599998063,
+          "end_offset": 8.410163599997759
+        },
+        {
+          "request_index": 19,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 1.965186595916748,
+          "err_body": "",
+          "start_offset": 7.110032999997202,
+          "end_offset": 9.075323599998228
+        },
+        {
+          "request_index": 20,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 1.5095524787902832,
+          "err_body": "",
+          "start_offset": 7.618677200000093,
+          "end_offset": 9.128297100000054
+        },
+        {
+          "request_index": 21,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 1.1092157363891602,
+          "err_body": "",
+          "start_offset": 8.133953900000051,
+          "end_offset": 9.243273000000045
+        },
+        {
+          "request_index": 22,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 2.8829665184020996,
+          "err_body": "",
+          "start_offset": 8.647010999997292,
+          "end_offset": 11.530070799999521
+        },
+        {
+          "request_index": 23,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 3.7239537239074707,
+          "err_body": "",
+          "start_offset": 9.16265889999704,
+          "end_offset": 12.886723499999789
+        },
+        {
+          "request_index": 24,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 4.303908586502075,
+          "err_body": "",
+          "start_offset": 9.674894199997652,
+          "end_offset": 13.978948899999523
+        },
+        {
+          "request_index": 25,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 3.787118673324585,
+          "err_body": "",
+          "start_offset": 10.19115519999832,
+          "end_offset": 13.978409499999543
+        },
+        {
+          "request_index": 26,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 3.274012327194214,
+          "err_body": "",
+          "start_offset": 10.705180999997538,
+          "end_offset": 13.979292399999395
+        },
+        {
+          "request_index": 27,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 2.763145685195923,
+          "err_body": "",
+          "start_offset": 11.215467099998932,
+          "end_offset": 13.978733099997044
+        },
+        {
+          "request_index": 28,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 2.2461628913879395,
+          "err_body": "",
+          "start_offset": 11.73111869999775,
+          "end_offset": 13.977387799997814
+        },
+        {
+          "request_index": 29,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 1.842763900756836,
+          "err_body": "",
+          "start_offset": 12.245127700000012,
+          "end_offset": 14.087994099998468
+        }
+      ]
+    },
+    {
+      "name": "BI CALLS",
+      "channel_type": "sequential",
+      "body": {
+        "input": {
+          "app": "NA",
+          "tenant": "",
+          "environment": "",
+          "specificationType": [
+            "SAP"
+          ],
+          "productType": "SEMI",
+          "specificationDataType": "P",
+          "name": [],
+          "prver": "1",
+          "productData": {
+            "div": "01",
+            "prodgr": "677TAY",
+            "ver": "A",
+            "plant": "2100"
+          }
+        }
+      },
+      "requests": [
+        {
+          "request_index": 0,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 3.2859766483306885,
+          "err_body": "",
+          "start_offset": 5.00782419999814,
+          "end_offset": 8.293926599999395
+        },
+        {
+          "request_index": 1,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 4.723365306854248,
+          "err_body": "",
+          "start_offset": 8.29445449999912,
+          "end_offset": 13.017930799996975
+        },
+        {
+          "request_index": 2,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 2.7533743381500244,
+          "err_body": "",
+          "start_offset": 13.018290699998033,
+          "end_offset": 15.771739399999205
+        },
+        {
+          "request_index": 3,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 3.525454521179199,
+          "err_body": "",
+          "start_offset": 15.772523199997522,
+          "end_offset": 19.298072199999297
+        }
+      ]
+    },
+    {
+      "name": "VALIDATION APP",
+      "channel_type": "sequential",
+      "body": {
+        "input": {
+          "app": "NA",
+          "tenant": "",
+          "environment": "",
+          "specificationType": [
+            "TECH",
+            "SAP"
+          ],
+          "productType": "SEMI",
+          "specificationDataType": "",
+          "name": [],
+          "prver": "1",
+          "productData": {
+            "div": "01",
+            "prodgr": "A45RT",
+            "ver": "A",
+            "plant": "2100"
+          }
+        }
+      },
+      "requests": [
+        {
+          "request_index": 0,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 6.224731922149658,
+          "err_body": "",
+          "start_offset": 0.00712559999738005,
+          "end_offset": 6.23199939999904
+        },
+        {
+          "request_index": 1,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 6.711943626403809,
+          "err_body": "",
+          "start_offset": 6.2335184999974445,
+          "end_offset": 12.945615099997667
+        },
+        {
+          "request_index": 2,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 6.293773412704468,
+          "err_body": "",
+          "start_offset": 12.947520099998655,
+          "end_offset": 19.24144030000025
+        },
+        {
+          "request_index": 3,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 4.34759521484375,
+          "err_body": "",
+          "start_offset": 19.24318239999775,
+          "end_offset": 23.590888099999574
+        },
+        {
+          "request_index": 4,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 4.468489170074463,
+          "err_body": "",
+          "start_offset": 23.592551599998842,
+          "end_offset": 28.061153200000263
+        },
+        {
+          "request_index": 5,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 3.994164228439331,
+          "err_body": "",
+          "start_offset": 28.06276660000003,
+          "end_offset": 32.057034999997995
+        }
+      ]
+    },
+    {
+      "name": "EUDAMED",
+      "channel_type": "sequential",
+      "body": {
+        "input": {
+          "app": "NA",
+          "tenant": "",
+          "environment": "",
+          "specificationType": [
+            "EUDAMED"
+          ],
+          "productType": "FIN",
+          "specificationDataType": "P",
+          "name": [],
+          "prver": "1",
+          "distchain": "01",
+          "productData": {
+            "div": "01",
+            "prodgr": "677TAY",
+            "ver": "A",
+            "pcode": "M0"
+          }
+        }
+      },
+      "requests": [
+        {
+          "request_index": 0,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 3.0546584129333496,
+          "err_body": "",
+          "start_offset": 0.00739869999961229,
+          "end_offset": 3.0621291999996174
+        },
+        {
+          "request_index": 1,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 3.1866252422332764,
+          "err_body": "",
+          "start_offset": 3.0649861999991117,
+          "end_offset": 6.25170629999775
+        },
+        {
+          "request_index": 2,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 5.307995080947876,
+          "err_body": "",
+          "start_offset": 6.254587299998093,
+          "end_offset": 11.562763199999608
+        },
+        {
+          "request_index": 3,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 4.505125999450684,
+          "err_body": "",
+          "start_offset": 11.565440999998827,
+          "end_offset": 16.070684999998775
+        },
+        {
+          "request_index": 4,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 5.343004465103149,
+          "err_body": "",
+          "start_offset": 16.073521299997083,
+          "end_offset": 21.41665909999938
+        },
+        {
+          "request_index": 5,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 2.415708541870117,
+          "err_body": "",
+          "start_offset": 21.419577199998457,
+          "end_offset": 23.835365299997648
+        },
+        {
+          "request_index": 6,
+          "state": "Ready",
+          "result": "OK (200)",
+          "elapsed_seconds": 2.2463724613189697,
+          "err_body": "",
+          "start_offset": 23.837782999999035,
+          "end_offset": 26.084231799999543
+        }
+      ]
+    }
+  ]
+}
