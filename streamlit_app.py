@@ -238,17 +238,16 @@ fig.update_layout(
     xaxis_title="Time relative to start",
     yaxis_title=None,
     height=max(400, len(df_all["Task"].unique()) * (12 * df_all["Dataset"].nunique()) + 100),
-    margin=dict(l=0, r=0, t=45, b=0),
+    margin=dict(l=0, r=0, t=80, b=0),
     showlegend=True,
     legend=dict(
         orientation="h", 
-        yref="container",
-        yanchor="top", 
-        y=1.0, 
-        xanchor="center", 
-        x=0.5,
-        title=dict(text="Dataset: ", side="left", font=dict(size=20)),
-        font=dict(size=20)
+        yanchor="bottom", 
+        y=1.02, 
+        xanchor="left", 
+        x=0.0,
+        title=dict(text="Dataset: ", side="left", font=dict(size=14)),
+        font=dict(size=14)
     ),
     xaxis=dict(
         range=[global_base_time, x_range_end],
