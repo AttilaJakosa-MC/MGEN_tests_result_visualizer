@@ -293,8 +293,8 @@ fig.update_layout(
         y=1.02, 
         xanchor="left", 
         x=0.0,
-        title=dict(text="Dataset:", font=dict(size=14)),
-        font=dict(family="monospace", size=12)
+        title=dict(text="Dataset:", font=dict(size=16)),
+        font=dict(family="monospace", size=16)
     ),
     xaxis=dict(
         range=[global_base_time, x_range_end],
