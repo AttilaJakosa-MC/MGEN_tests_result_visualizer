@@ -293,7 +293,7 @@ fig.update_layout(
         y=1.02, 
         xanchor="left", 
         x=0.0,
-        title=dict(text="Dataset:", font=dict(size=16)),
+        title=dict(text="Dataset: ", side="left", font=dict(size=16)),
         font=dict(family="monospace", size=16)
     ),
     xaxis=dict(
