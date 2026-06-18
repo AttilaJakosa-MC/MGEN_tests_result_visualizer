@@ -27,16 +27,63 @@ if os.path.isdir(results_dir):
 json_files.sort()
 options = ["-- None --"] + json_files
 
+# Initialize session state from query params if not already set
+if "primary_selection" not in st.session_state:
+    qp_primary = st.query_params.get("primary")
+    if qp_primary in options:
+        st.session_state.primary_selection = qp_primary
+    elif f"{qp_primary}.json" in options:
+        st.session_state.primary_selection = f"{qp_primary}.json"
+    else:
+        st.session_state.primary_selection = options[0]
+
+if "secondary_selection" not in st.session_state:
+    qp_secondary = st.query_params.get("secondary")
+    if qp_secondary in options:
+        st.session_state.secondary_selection = qp_secondary
+    elif f"{qp_secondary}.json" in options:
+        st.session_state.secondary_selection = f"{qp_secondary}.json"
+    else:
+        st.session_state.secondary_selection = options[0]
+
+def update_primary_param():
+    val = st.session_state.primary_selection
+    if val != "-- None --":
+        st.query_params["primary"] = val
+    elif "primary" in st.query_params:
+        del st.query_params["primary"]
+
+def update_secondary_param():
+    val = st.session_state.secondary_selection
+    if val != "-- None --":
+        st.query_params["secondary"] = val
+    elif "secondary" in st.query_params:
+        del st.query_params["secondary"]
+
+# Ensure URL immediately reflects the loaded state
+update_primary_param()
+update_secondary_param()
+
 with st.sidebar:
     st.header("Result Sets")
     
-    primary_selection = st.selectbox("Select Primary Result JSON", options, index=0)
+    primary_selection = st.selectbox(
+        "Select Primary Result JSON", 
+        options, 
+        key="primary_selection",
+        on_change=update_primary_param
+    )
     primary_file = os.path.join(results_dir, primary_selection) if primary_selection != "-- None --" else None
     primary_container = st.container()
     
     st.divider()
     
-    secondary_selection = st.selectbox("Select Secondary Result JSON", options, index=0)
+    secondary_selection = st.selectbox(
+        "Select Secondary Result JSON", 
+        options, 
+        key="secondary_selection",
+        on_change=update_secondary_param
+    )
     secondary_file = os.path.join(results_dir, secondary_selection) if secondary_selection != "-- None --" else None
     secondary_container = st.container()
 
