@@ -285,7 +285,7 @@ fig.update_layout(
     xaxis_title="Time relative to start",
     yaxis_title=None,
     height=max(400, len(df_all["Task"].unique()) * (12 * df_all["Dataset"].nunique()) + 100),
-    margin=dict(l=0, r=0, t=80, b=0),
+    margin=dict(l=0, r=0, t=50, b=0),
     showlegend=True,
     legend=dict(
         orientation="h", 
@@ -293,8 +293,8 @@ fig.update_layout(
         y=1.02, 
         xanchor="left", 
         x=0.0,
-        title=dict(text="Dataset: ", side="left", font=dict(size=14)),
-        font=dict(size=14)
+        title=dict(text="Dataset:", font=dict(size=14)),
+        font=dict(family="monospace", size=12)
     ),
     xaxis=dict(
         range=[global_base_time, x_range_end],
@@ -330,6 +330,8 @@ fig.update_traces(
     hovertemplate="%{customdata[0]}<extra></extra>"
 )
 
+
+
 # Add horizontal lines to separate different channels
 tasks_ordered = list(df_all["Task"].unique())
 for i in range(len(tasks_ordered) - 1):
@@ -346,6 +348,7 @@ event = st.plotly_chart(
     config={
         'toImageButtonOptions': {
             'format': 'png',
+            'width': 1920,
             'scale': 2
         }
     }
